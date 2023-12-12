@@ -1,4 +1,4 @@
-package com.lenta.rickandmorty.ui.theme
+package com.project.rickandmorty.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

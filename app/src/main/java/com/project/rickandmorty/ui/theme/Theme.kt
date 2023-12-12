@@ -1,4 +1,4 @@
-package com.lenta.rickandmorty.ui.theme
+package com.project.rickandmorty.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -22,9 +22,9 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = Red80,
+    secondary = Red40,
+    tertiary = Red10
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

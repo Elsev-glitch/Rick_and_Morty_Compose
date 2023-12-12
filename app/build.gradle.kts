@@ -1,10 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.lenta.rickandmorty"
+    namespace = "com.project.rickandmorty"
     compileSdk = 34
 
     defaultConfig {
@@ -18,6 +20,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api/\"")
     }
 
     buildTypes {
@@ -38,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -66,4 +71,31 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+
+    //viewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    //di
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    //joda
+    implementation ("joda-time:joda-time:2.10.5")
+
+    //paging
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+    implementation("androidx.paging:paging-compose:3.2.1")
+
+    //db
+    implementation ("androidx.room:room-runtime:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.room:room-paging:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
+}
+
+kapt {
+    correctErrorTypes = true
 }
